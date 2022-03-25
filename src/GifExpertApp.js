@@ -18,10 +18,7 @@ function GifExpertApp() {
       <hr/>
       {
         categories.map( (category, index) => (
-          <div key={`category-${index}`} className="flex-between al-base">  
-            <GifGrid key={`grid-${category}`} category={category}></GifGrid>
-            <button className="ml-1" onClick={() => removeCategory(index)}>x</button> 
-         </div>
+          <GifGrid key={`grid-${category}`} index={index} category={category} setCategories={setCategories}></GifGrid>
         ))
       }
     </>

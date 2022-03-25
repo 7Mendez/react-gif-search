@@ -1,12 +1,13 @@
 import { GifGridItem } from "./GifGridItem";
 import { useFetchGifs } from "./hooks/useFetchGifs";
+import { RemoveCategory } from "./RemoveCategory";
 
 
-export const GifGrid = ({ category }) => {
+export const GifGrid = ({ category, index, setCategories }) => {
   const { data:images, message } = useFetchGifs(category);
 
   return (
-    <>  
+    <div className="flex-between al-base">  
       <details className="width-full" open={true}>
         <summary className="animate__animated animate__flash">{category}</summary>
 
@@ -19,6 +20,9 @@ export const GifGrid = ({ category }) => {
           )
         }
       </details>
-    </>
+
+      <RemoveCategory setCategories={setCategories} index={index} ></RemoveCategory>
+    </div>
   )
-}
+}                
+
